@@ -1,0 +1,46 @@
+databaseChangeLog:
+  - changeSet:
+      id: 20250316-01-elements-table
+      author: Kanan Orujov
+      changes:
+        - createTable:
+            tableName: elements
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: element_type
+                  type: VARCHAR(128)
+              - column:
+                  name: element_name
+                  type: VARCHAR(128)
+              - column:
+                  name: language
+                  type: VARCHAR(16)
+              - column:
+                  name: screen_name
+                  type: VARCHAR(128)
+              - column:
+                  name: is_visible
+                  type: BOOLEAN
+                  constraints:
+                    nullable: false
+              - column:
+                  name: created_at
+                  type: TIMESTAMP
+                  defaultValueComputed: now()
+              - column:
+                  name: updated_at
+                  type: TIMESTAMP
+                  defaultValueComputed: now()
+              - column:
+                  name: properties_id
+                  type: BIGINT
+                  constraints:
+                    foreignKeyName: fk_elements_properties
+                    references: properties(id)

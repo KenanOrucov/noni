@@ -1,0 +1,40 @@
+databaseChangeLog:
+  - changeSet:
+      id: 20250316-03-styles-table
+      author: Kanan Orujov
+      changes:
+        - createTable:
+            tableName: styles
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: font_size
+                  type: VARCHAR(128)
+              - column:
+                  name: font_color
+                  type: VARCHAR(64)
+              - column:
+                  name: padding
+                  type: VARCHAR(64)
+              - column:
+                  name: margin
+                  type: VARCHAR(64)
+              - column:
+                  name: is_visible
+                  type: BOOLEAN
+                  constraints:
+                    nullable: false
+              - column:
+                  name: created_at
+                  type: TIMESTAMP
+                  defaultValueComputed: now()
+              - column:
+                  name: updated_at
+                  type: TIMESTAMP
+                  defaultValueComputed: now()

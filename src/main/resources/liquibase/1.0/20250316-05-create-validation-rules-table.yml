@@ -1,0 +1,39 @@
+databaseChangeLog:
+  - changeSet:
+      id: 20250316-04-validation-rules-table
+      author: Kanan Orujov
+      changes:
+        - createTable:
+            tableName: validation_rules
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: value
+                  type: VARCHAR(128)
+              - column:
+                  name: rule_type
+                  type: VARCHAR(64)
+              - column:
+                  name: is_visible
+                  type: BOOLEAN
+                  constraints:
+                    nullable: false
+              - column:
+                  name: created_at
+                  type: TIMESTAMP
+                  defaultValueComputed: now()
+              - column:
+                  name: updated_at
+                  type: TIMESTAMP
+                  defaultValueComputed: now()
+              - column:
+                  name: properties_id
+                  type: BIGINT
+                  constraints:
+                    foreignKeyName: fk_properties_validations
+                    references: properties(id)

@@ -1,0 +1,53 @@
+version: '3.1'
+services:
+  postgres:
+    container_name: noni_lab
+    image: 'postgres:latest'
+    environment:
+      POSTGRES_DB: noni_lab
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: password
+    ports:
+      - '5432:5432'
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    networks:
+      - my_network
+
+#  pgadmin:
+#    container_name: ms_order_pgadmin
+#    image: 'dpage/pgadmin4:latest'
+#    environment:
+#      PGADMIN_DEFAULT_EMAIL: admin@example.com
+#      PGADMIN_DEFAULT_PASSWORD: password
+#      PGADMIN_LISTEN_PORT: 80
+#      PGADMIN_CONFIG_SERVER_MODE: 'False'
+#      PGADMIN_CONFIG_MASTER_PASSWORD_REQUIRED: 'False'
+#    volumes:
+#      - pgadmin:/var/lib/pgadmin
+#      - ./docker_pgadmin_servers.json:/pgadmin4/servers.json
+#    ports:
+#      - '9090:80'
+#    entrypoint:
+#      - "/bin/sh"
+#      - "-c"
+#      - "/bin/echo 'postgres:5432:*:dvega:password' > /tmp/pgpassfile && chmod 600 /tmp/pgpassfile && /entrypoint.sh"
+#    networks:
+#      - my_network
+
+#  redis:
+#    container_name: ms_order_redis
+#    image: 'redis:latest'
+#    ports:
+#      - '6379:6379'
+#    networks:
+#      - my_network
+
+
+networks:
+  my_network:
+    driver: bridge
+
+volumes:
+  db_data:
+  pgadmin:

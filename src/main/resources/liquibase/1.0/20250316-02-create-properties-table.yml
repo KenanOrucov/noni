@@ -1,0 +1,64 @@
+databaseChangeLog:
+  - changeSet:
+      id: 20250316-02-properties-table
+      author: Kanan Orujov
+      changes:
+        - createTable:
+            tableName: properties
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: placeholder
+                  type: VARCHAR(128)
+              - column:
+                  name: text
+                  type: TEXT
+              - column:
+                  name: icon
+                  type: VARCHAR(128)
+              - column:
+                  name: border_color
+                  type: VARCHAR(64)
+              - column:
+                  name: background_color
+                  type: VARCHAR(64)
+              - column:
+                  name: is_required
+                  type: BOOLEAN
+              - column:
+                  name: default_value
+                  type: VARCHAR(256)
+              - column:
+                  name: is_disabled
+                  type: BOOLEAN
+              - column:
+                  name: max_length
+                  type: NUMBER
+              - column:
+                  name: min_length
+                  type: NUMBER
+              - column:
+                  name: is_visible
+                  type: BOOLEAN
+                  constraints:
+                    nullable: false
+              - column:
+                  name: created_at
+                  type: TIMESTAMP
+                  defaultValueComputed: now()
+              - column:
+                  name: updated_at
+                  type: TIMESTAMP
+                  defaultValueComputed: now()
+              - column:
+                  name: styles_id
+                  type: BIGINT
+                  constraints:
+                    foreignKeyName: fk_properties_styles
+                    references: styles(id)

@@ -1,0 +1,18 @@
+#spring.application.name=noni
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/noni_lab
+    username: root
+    password: password
+  jpa:
+    show-sql: true
+    open-in-view: false
+  liquibase:
+    change-log: classpath:liquibase/changelog-master.yml
+#    drop-first: true
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
