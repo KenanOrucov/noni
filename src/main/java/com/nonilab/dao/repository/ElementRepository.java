@@ -18,13 +18,13 @@ public interface ElementRepository extends JpaRepository<ElementEntity, Long> {
     })
     Optional<ElementEntity> findById(Long id);
 
-    @EntityGraph(attributePaths = {
-            "propertyEntity",
-            "propertyEntity.styleEntity",
-            "propertyEntity.validationRuleEntities",
-            "propertyEntity.optionEntities"
-    })
-    List<ElementEntity> findAllElements();
+//    @EntityGraph(attributePaths = {
+//            "propertyEntity",
+//            "propertyEntity.styleEntity",
+//            "propertyEntity.validationRuleEntities",
+//            "propertyEntity.optionEntities"
+//    })
+//    List<ElementEntity> findAllElements();
 
 
 
