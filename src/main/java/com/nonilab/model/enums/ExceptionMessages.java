@@ -9,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 public enum ExceptionMessages {
     UNEXPECTED_EXCEPTION("UNEXPECTED_EXCEPTION", "Unexpected exception occurred."),
     HTTP_METHOD_NOT_ALLOWED("METHOD_NOT_ALLOWED", "Method not allowed."),
+    USER_NOT_FOUND("USER_NOT_FOUND", "User not found."),
     STYLE_NOT_FOUND("STYLE_NOT_FOUND", "Style not found."),
     ELEMENT_NOT_FOUND("ELEMENT_NOT_FOUND", "Element not found."),
     PROPERTY_NOT_FOUND("PROPERTY_NOT_FOUND", "Property not found."),

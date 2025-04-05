@@ -6,7 +6,6 @@ import com.nonilab.model.request.StyleRequest;
 import com.nonilab.model.request.StyleRequestForUpdate;
 import com.nonilab.model.response.StyleResponse;
 
-import static java.time.LocalDateTime.now;
 
 public enum StyleMapper {
     STYLE_MAPPER;
